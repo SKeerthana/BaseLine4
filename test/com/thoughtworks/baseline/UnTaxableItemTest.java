@@ -47,6 +47,13 @@ public class UnTaxableItemTest {
     }
 
     @Test
+    public void shouldReturnFalseIfImportedTaxIsDifferent() {
+        UnTaxableItem unTaxableItem1 = new UnTaxableItem("book", 12, 10, .5);
+        UnTaxableItem unTaxableItem2 = new UnTaxableItem("book", 12, 10, .15);
+        assertNotEquals(unTaxableItem1, unTaxableItem2);
+    }
+
+    @Test
     public void shouldReturnTrueIfAllAttributesAreSame() {
         UnTaxableItem unTaxableItem1 = new UnTaxableItem("book", 12, 101, .5);
         UnTaxableItem unTaxableItem2 = new UnTaxableItem("book", 12, 101, .5);

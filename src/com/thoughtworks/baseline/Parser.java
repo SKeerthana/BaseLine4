@@ -27,7 +27,7 @@ public class Parser {
 
             for (String validUnTaxableItem : validUnTaxableItems) {
                 if (itemName.contains(validUnTaxableItem))
-                    parsedItem = new UnTaxableItem(itemName, quantity, price);
+                    parsedItem = new UnTaxableItem(itemName, quantity, price, 0);
             }
 
             for (String validTaxableItem : validTaxableItems) {

@@ -10,7 +10,7 @@ public class ParserTest {
 
     @Test
     public void shouldParseAndReturnItem() {
-        final UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem("book at", 1, 12.49);
+        final UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem("book at", 1, 12.49, 0);
         ArrayList<UnTaxableItem> unTaxableItems = new ArrayList<UnTaxableItem>() {{
             add(parsedInputUnTaxableItem);
         }};

@@ -23,7 +23,7 @@ public class UnTaxableItem implements Item {
         if (that.getClass() != getClass())
             return false;
         UnTaxableItem thatUnTaxableItem = (UnTaxableItem) that;
-        if (thatUnTaxableItem.itemName.equals(itemName) && thatUnTaxableItem.quantity == (quantity) && thatUnTaxableItem.price == price)
+        if (thatUnTaxableItem.itemName.equals(itemName) && thatUnTaxableItem.quantity == (quantity) && thatUnTaxableItem.price == price && thatUnTaxableItem.importTaxRate == importTaxRate)
             return true;
         return false;
     }
