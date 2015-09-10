@@ -17,6 +17,8 @@ public class Item {
 
     @Override
     public boolean equals(Object that) {
+        if(that.getClass() != getClass())
+            return false;
         return true;
     }
 
