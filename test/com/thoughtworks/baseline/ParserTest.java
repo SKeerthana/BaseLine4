@@ -65,4 +65,14 @@ public class ParserTest {
 
         assertEquals(new TaxableItem("imported bottle of perfume at", 1, 47.50, .15), items.get(0));
     }
+
+    @Test
+    public void shouldParseAndReturnTaxableItemWhichIsNotImported() {
+        Parser parser = new Parser();
+        ArrayList<Item> items = parser.parse(new ArrayList<String>() {{
+            add("1 bottle of perfume at 47.50");
+        }});
+
+        assertEquals(new TaxableItem("bottle of perfume at", 1, 47.50, .10), items.get(0));
+    }
 }
