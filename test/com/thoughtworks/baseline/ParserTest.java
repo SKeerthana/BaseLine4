@@ -35,4 +35,14 @@ public class ParserTest {
     public void shouldParsePriceFromInputString() {
         assertEquals(12.49, new Parser().getPrice("1 book at 12.49"), 0.001);
     }
+
+    @Test
+    public void shouldParseAndReturnUntaxableItem() {
+
+        Parser parser = new Parser();
+        ArrayList<Item> items = parser.parse(new ArrayList<String>() {{
+            add("1 book at 12.49");
+        }});
+        assertEquals(UnTaxableItem.class, items.get(0).getClass());
+    }
 }

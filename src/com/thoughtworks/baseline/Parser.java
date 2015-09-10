@@ -18,16 +18,19 @@ public class Parser {
 
     public ArrayList<Item> parse(ArrayList<String> inputItems) {
         ArrayList<Item> items = new ArrayList<>();
+        Item parsedItem = null;
 
         for (String item : inputItems) {
-
             String itemName = getItemName(item);
             int quantity = getQuantity(item);
             Double price = getPrice(item);
 
-            UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem(itemName, quantity, price);
-            parsedInputUnTaxableItem.calculateSalesTax();
-            items.add(parsedInputUnTaxableItem);
+            for (String validUnTaxableItem : validUnTaxableItems) {
+                if (itemName.contains(validUnTaxableItem))
+                    parsedItem = new UnTaxableItem(itemName, quantity, price);
+            }
+
+            items.add(parsedItem);
         }
 
         return items;
