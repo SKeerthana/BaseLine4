@@ -32,7 +32,10 @@ public class Parser {
 
             for (String validTaxableItem : validTaxableItems) {
                 if (itemName.contains(validTaxableItem)) {
-                    parsedItem = new TaxableItem(itemName, quantity, price, .10);
+                    if (itemName.contains("imported"))
+                        parsedItem = new TaxableItem(itemName, quantity, price, .15);
+                    else
+                        parsedItem = new TaxableItem(itemName, quantity, price, .10);
                 }
             }
 

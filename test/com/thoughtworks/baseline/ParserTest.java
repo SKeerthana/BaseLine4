@@ -38,21 +38,31 @@ public class ParserTest {
 
     @Test
     public void shouldParseAndReturnUntaxableItem() {
-
         Parser parser = new Parser();
         ArrayList<Item> items = parser.parse(new ArrayList<String>() {{
             add("1 book at 12.49");
         }});
+
         assertEquals(UnTaxableItem.class, items.get(0).getClass());
     }
 
     @Test
     public void shouldParseAndReturnTaxableItem() {
-
         Parser parser = new Parser();
         ArrayList<Item> items = parser.parse(new ArrayList<String>() {{
             add("1 imported bottle of perfume at 47.50");
         }});
+
         assertEquals(TaxableItem.class, items.get(0).getClass());
+    }
+
+    @Test
+    public void shouldParseAndReturnTaxableItemWhichIsImported() {
+        Parser parser = new Parser();
+        ArrayList<Item> items = parser.parse(new ArrayList<String>() {{
+            add("1 imported bottle of perfume at 47.50");
+        }});
+
+        assertEquals(new TaxableItem("imported bottle of perfume at", 1, 47.50, .15), items.get(0));
     }
 }
