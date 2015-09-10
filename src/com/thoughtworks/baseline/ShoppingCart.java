@@ -11,6 +11,9 @@ public class ShoppingCart {
     }
 
     public double calculateTotal() {
-        return 0.0;
+        double total = 0.0;
+        for (Item item :items)
+            total += item.calculateSalesTax();
+        return total;
     }
 }
