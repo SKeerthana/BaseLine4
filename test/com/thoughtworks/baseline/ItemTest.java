@@ -45,4 +45,11 @@ public class ItemTest {
         Item item2 = new Item("book", 12, 101);
         assertNotEquals(item1, item2);
     }
+
+    @Test
+    public void shouldReturnTrueIfAllAttributesAreSame() {
+        Item item1 = new Item("book", 12, 101);
+        Item item2 = new Item("book", 12, 101);
+        assertEquals(item1, item2);
+    }
 }
