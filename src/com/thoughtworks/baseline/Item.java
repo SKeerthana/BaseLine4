@@ -20,7 +20,7 @@ public class Item {
         if(that.getClass() != getClass())
             return false;
         Item thatItem = (Item) that;
-        if(thatItem.itemName.equals(itemName) && thatItem.quantity == (quantity))
+        if(thatItem.itemName.equals(itemName) && thatItem.quantity == (quantity) && thatItem.price == price)
             return true;
         return false;
     }
