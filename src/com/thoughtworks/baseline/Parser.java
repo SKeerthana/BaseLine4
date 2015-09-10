@@ -22,13 +22,18 @@ public class Parser {
         for (String item : inputItems) {
 
             String itemName = getItemName(item);
+            int quantity = getQuantity(item);
 
-            UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem(item, 0, 0);
+            UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem(itemName, 0, 0);
             parsedInputUnTaxableItem.calculateSalesTax();
             items.add(parsedInputUnTaxableItem);
         }
 
         return items;
+    }
+
+    public int getQuantity(String item) {
+        return Integer.parseInt(item.substring(0, item.indexOf(" ")));
     }
 
     public String getItemName(String item) {
