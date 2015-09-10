@@ -5,11 +5,13 @@ public class UnTaxableItem implements Item {
     private String itemName;
     private int quantity;
     private double price;
+    private double importTaxRate;
 
-    public UnTaxableItem(String itemName, int quantity, double price) {
+    public UnTaxableItem(String itemName, int quantity, double price, double importTaxRate) {
         this.quantity = quantity;
         this.itemName = itemName;
         this.price = price;
+        this.importTaxRate = importTaxRate;
     }
 
     public double calculateSalesTax() {
