@@ -7,12 +7,6 @@ import static org.junit.Assert.assertNotEquals;
 
 public class TaxableItemTest {
     @Test
-    public void shouldCalculateSalesTax() {
-        TaxableItem taxableItem = new TaxableItem("book", 1, 10, .10);
-        assertEquals(10, taxableItem.calculateSalesTax(), 0);
-    }
-
-    @Test
     public void shouldEqualsMethodReturnTrueForSameObjectsPassed() {
         TaxableItem taxableItem1 = new TaxableItem("book", 1, 10, .10);
         assertEquals(taxableItem1, taxableItem1);
@@ -58,5 +52,11 @@ public class TaxableItemTest {
         TaxableItem taxableItem1 = new TaxableItem("book", 12, 101, .10);
         TaxableItem taxableItem2 = new TaxableItem("book", 12, 101, .10);
         assertEquals(taxableItem1, taxableItem2);
+    }
+
+    @Test
+    public void shouldReturnPriceApplyingTaxValue() {
+        TaxableItem taxableItem = new TaxableItem("perfume", 12, 10, .10);
+        assertEquals(11.0, taxableItem.calculateSalesTax(), 0.001);
     }
 }

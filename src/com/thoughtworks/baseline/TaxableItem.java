@@ -15,7 +15,7 @@ public class TaxableItem implements Item{
     }
 
     public double calculateSalesTax() {
-        return price;
+        return price + Math.ceil(taxRate * price * 20) / 20;
     }
 
     @Override
