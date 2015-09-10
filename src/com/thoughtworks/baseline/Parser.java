@@ -26,8 +26,12 @@ public class Parser {
             Double price = getPrice(item);
 
             for (String validUnTaxableItem : validUnTaxableItems) {
-                if (itemName.contains(validUnTaxableItem))
-                    parsedItem = new UnTaxableItem(itemName, quantity, price, 0);
+                if (itemName.contains(validUnTaxableItem)) {
+                    if (!itemName.contains("imported"))
+                        parsedItem = new UnTaxableItem(itemName, quantity, price, 0);
+                    else
+                        parsedItem = new UnTaxableItem(itemName, quantity, price, 0.05);
+                }
             }
 
             for (String validTaxableItem : validTaxableItems) {
