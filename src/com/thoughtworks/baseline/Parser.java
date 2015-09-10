@@ -30,6 +30,12 @@ public class Parser {
                     parsedItem = new UnTaxableItem(itemName, quantity, price);
             }
 
+            for (String validTaxableItem : validTaxableItems) {
+                if (itemName.contains(validTaxableItem)) {
+                    parsedItem = new TaxableItem(itemName, quantity, price, .10);
+                }
+            }
+
             items.add(parsedItem);
         }
 

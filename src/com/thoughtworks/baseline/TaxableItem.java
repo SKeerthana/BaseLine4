@@ -5,13 +5,13 @@ public class TaxableItem implements Item{
     private String itemName;
     private int quantity;
     private double price;
-    private boolean imported;
+    private double taxRate;
 
-    public TaxableItem(String itemName, int quantity, double price, boolean imported) {
+    public TaxableItem(String itemName, int quantity, double price, Double taxRate) {
         this.quantity = quantity;
         this.itemName = itemName;
         this.price = price;
-        this.imported = imported;
+        this.taxRate = taxRate;
     }
 
     public double calculateSalesTax() {
@@ -24,7 +24,7 @@ public class TaxableItem implements Item{
             return false;
         TaxableItem thatTaxableItem = (TaxableItem) that;
         if (thatTaxableItem.itemName.equals(itemName) && thatTaxableItem.quantity == quantity
-                && thatTaxableItem.price == price && thatTaxableItem.imported == imported)
+                && thatTaxableItem.price == price && thatTaxableItem.taxRate == taxRate)
             return true;
         return false;
     }
