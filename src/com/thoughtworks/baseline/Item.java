@@ -19,7 +19,10 @@ public class Item {
     public boolean equals(Object that) {
         if(that.getClass() != getClass())
             return false;
-        return true;
+        Item thatItem = (Item) that;
+        if(thatItem.itemName.equals(itemName))
+            return true;
+        return false;
     }
 
 }

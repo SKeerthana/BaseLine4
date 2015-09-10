@@ -3,6 +3,7 @@ package com.thoughtworks.baseline;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class ItemTest {
     @Test
@@ -15,5 +16,12 @@ public class ItemTest {
     public void shouldEqualsMethodReturnTrueForSameObjectsPassed() {
         Item item1 = new Item("book", 1, 10);
         assertEquals(item1, item1);
+    }
+
+    @Test
+    public void shouldReturnFalseIfItemNameIsDifferent() {
+        Item item1 = new Item("book", 1, 10);
+        Item item2 = new Item("book22", 12, 101);
+        assertNotEquals(item1, item2);
     }
 }
