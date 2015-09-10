@@ -13,13 +13,13 @@ public class Parser {
         add("pills");
     }};
 
-    public ArrayList<Item> parse(ArrayList<String> inputItems) {
-        ArrayList<Item> items = new ArrayList<Item>();
+    public ArrayList<UnTaxableItem> parse(ArrayList<String> inputItems) {
+        ArrayList<UnTaxableItem> unTaxableItems = new ArrayList<UnTaxableItem>();
         for (String item : inputItems) {
-            Item parsedInputItem = new Item(item, 0 , 0);
-            parsedInputItem.calculateSalesTax();
-            items.add(parsedInputItem);
+            UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem(item, 0 , 0);
+            parsedInputUnTaxableItem.calculateSalesTax();
+            unTaxableItems.add(parsedInputUnTaxableItem);
         }
-        return items;
+        return unTaxableItems;
     }
 }

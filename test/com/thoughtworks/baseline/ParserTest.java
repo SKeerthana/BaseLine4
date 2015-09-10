@@ -10,12 +10,12 @@ public class ParserTest {
 
     @Test
     public void shouldParseAndReturnItem() {
-        final Item parsedInputItem = new Item("1 book at 12.49", 0, 0);
-        ArrayList<Item> items = new ArrayList<Item>() {{
-            add(parsedInputItem);
+        final UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem("1 book at 12.49", 0, 0);
+        ArrayList<UnTaxableItem> unTaxableItems = new ArrayList<UnTaxableItem>() {{
+            add(parsedInputUnTaxableItem);
         }};
         Parser parser = new Parser();
-        assertEquals(items, parser.parse(new ArrayList<String>() {{
+        assertEquals(unTaxableItems, parser.parse(new ArrayList<String>() {{
             add("1 book at 12.49");
         }}));
 
