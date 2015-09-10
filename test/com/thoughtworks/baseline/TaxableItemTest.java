@@ -47,6 +47,13 @@ public class TaxableItemTest {
     }
 
     @Test
+    public void shouldReturnFlaseIfImportedValueIsDifferent() {
+        TaxableItem taxableItem1 = new TaxableItem("book", 12, 10, false);
+        TaxableItem taxableItem2 = new TaxableItem("book", 12, 101, true);
+        assertNotEquals(taxableItem1, taxableItem2);
+    }
+
+    @Test
     public void shouldReturnTrueIfAllAttributesAreSame() {
         TaxableItem taxableItem1 = new TaxableItem("book", 12, 101, false);
         TaxableItem taxableItem2 = new TaxableItem("book", 12, 101, false);

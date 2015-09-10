@@ -22,7 +22,8 @@ public class TaxableItem {
         if (that.getClass() != getClass())
             return false;
         TaxableItem thatTaxableItem = (TaxableItem) that;
-        if (thatTaxableItem.itemName.equals(itemName) && thatTaxableItem.quantity == (quantity) && thatTaxableItem.price == price)
+        if (thatTaxableItem.itemName.equals(itemName) && thatTaxableItem.quantity == quantity
+                && thatTaxableItem.price == price && thatTaxableItem.imported == imported)
             return true;
         return false;
     }
