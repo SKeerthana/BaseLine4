@@ -23,8 +23,9 @@ public class Parser {
 
             String itemName = getItemName(item);
             int quantity = getQuantity(item);
+            Double price = getPrice(item);
 
-            UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem(itemName, 0, 0);
+            UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem(itemName, quantity, price);
             parsedInputUnTaxableItem.calculateSalesTax();
             items.add(parsedInputUnTaxableItem);
         }
@@ -38,5 +39,9 @@ public class Parser {
 
     public String getItemName(String item) {
         return item.substring(item.indexOf(" ") + 1, item.lastIndexOf(" "));
+    }
+
+    public Double getPrice(String item) {
+        return Double.parseDouble(item.substring(item.lastIndexOf(" ")));
     }
 }

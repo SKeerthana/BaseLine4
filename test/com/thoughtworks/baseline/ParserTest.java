@@ -10,7 +10,7 @@ public class ParserTest {
 
     @Test
     public void shouldParseAndReturnItem() {
-        final UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem("book at", 0, 0);
+        final UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem("book at", 1, 12.49);
         ArrayList<UnTaxableItem> unTaxableItems = new ArrayList<UnTaxableItem>() {{
             add(parsedInputUnTaxableItem);
         }};
@@ -29,5 +29,10 @@ public class ParserTest {
     @Test
     public void shouldParseQuantityFromInputString() {
         assertEquals(1, new Parser().getQuantity("1 book at 12.49"));
+    }
+
+    @Test
+    public void shouldParsePriceFromInputString() {
+        assertEquals(12.49, new Parser().getPrice("1 book at 12.49"), 0.001);
     }
 }
