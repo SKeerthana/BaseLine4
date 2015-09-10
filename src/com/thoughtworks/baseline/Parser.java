@@ -5,21 +5,33 @@ import java.util.ArrayList;
 //parsers the input list and returns the item
 public class Parser {
 
-    private ArrayList<String> validItems = new ArrayList<String>() {{
-        add("book");
+    private ArrayList<String> validTaxableItems = new ArrayList<String>() {{
         add("music");
-        add("chocolate");
         add("perfume");
+    }};
+
+    private ArrayList<String> validUnTaxableItems = new ArrayList<String>() {{
+        add("book");
+        add("chocolate");
         add("pills");
     }};
 
-    public ArrayList<UnTaxableItem> parse(ArrayList<String> inputItems) {
-        ArrayList<UnTaxableItem> unTaxableItems = new ArrayList<UnTaxableItem>();
+    public ArrayList<Item> parse(ArrayList<String> inputItems) {
+        ArrayList<Item> items = new ArrayList<>();
+
         for (String item : inputItems) {
-            UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem(item, 0 , 0);
+
+            String itemName = getItemName(item);
+
+            UnTaxableItem parsedInputUnTaxableItem = new UnTaxableItem(item, 0, 0);
             parsedInputUnTaxableItem.calculateSalesTax();
-            unTaxableItems.add(parsedInputUnTaxableItem);
+            items.add(parsedInputUnTaxableItem);
         }
-        return unTaxableItems;
+
+        return items;
+    }
+
+    public String getItemName(String item) {
+        return item.substring(item.indexOf(" ") + 1, item.lastIndexOf(" "));
     }
 }

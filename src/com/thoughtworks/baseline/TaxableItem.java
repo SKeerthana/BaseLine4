@@ -1,6 +1,7 @@
 package com.thoughtworks.baseline;
 
-public class TaxableItem {
+//Stores details about the taxable items
+public class TaxableItem implements Item{
     private String itemName;
     private int quantity;
     private double price;

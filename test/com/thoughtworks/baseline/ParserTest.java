@@ -18,6 +18,12 @@ public class ParserTest {
         assertEquals(unTaxableItems, parser.parse(new ArrayList<String>() {{
             add("1 book at 12.49");
         }}));
+    }
+
+    @Test
+    public void shouldReturnItemName() {
+
+        assertEquals("book at",new Parser().getItemName("1 book at 12.49"));
 
     }
 }
